@@ -70,6 +70,8 @@ export interface WellnessEvent {
   groupSize: GroupPreference;
   familyFriendly: boolean;
   imageColor: string;
+  /** External URL to register/book a place */
+  registrationUrl: string;
 }
 
 export interface Recommendation {

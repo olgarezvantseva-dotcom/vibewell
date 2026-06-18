@@ -2,9 +2,9 @@ import { useMemo } from 'react';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { format } from 'date-fns';
-import { ArrowLeft, Clock, MapPin, Users, Wallet } from 'lucide-react-native';
+import { Linking, Pressable, ScrollView, View } from 'react-native';
+import { ArrowLeft, Clock, ExternalLink, MapPin, Users, Wallet } from 'lucide-react-native';
 import { Button, Chip, Surface, Text } from 'heroui-native';
-import { Pressable, ScrollView, View } from 'react-native';
 
 import MapView from '@/components/MapView';
 import { CATEGORY_LABELS, INTERESTS } from '@/lib/constants';
@@ -145,9 +145,15 @@ export default function EventDetailScreen() {
             />
           </Surface>
 
-          <Button onPress={() => router.back()}>
-            <Button.Label>Add to my day</Button.Label>
-          </Button>
+          <View className="gap-3">
+            <Button onPress={() => void Linking.openURL(event.registrationUrl)}>
+              <Button.Label>Register / Book a place</Button.Label>
+              <ExternalLink size={18} color="#ffffff" />
+            </Button>
+            <Text className="text-muted text-center text-xs">
+              Opens the organiser&apos;s booking page in your browser
+            </Text>
+          </View>
         </View>
       </ScrollView>
     </View>

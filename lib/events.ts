@@ -38,6 +38,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'small',
     familyFriendly: false,
     imageColor: '#7fb5a8',
+    registrationUrl: 'https://www.eventbrite.com/d/online/restorative-yin-yoga/',
   },
   {
     id: 'e2',
@@ -56,6 +57,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'large',
     familyFriendly: true,
     imageColor: '#9bbf6f',
+    registrationUrl: 'https://www.parkrun.org.uk/register/',
   },
   {
     id: 'e3',
@@ -74,6 +76,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'small',
     familyFriendly: false,
     imageColor: '#88a9c9',
+    registrationUrl: 'https://www.eventbrite.com/d/online/breathwork-sound-bath/',
   },
   {
     id: 'e4',
@@ -92,6 +95,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'large',
     familyFriendly: false,
     imageColor: '#d08a6a',
+    registrationUrl: 'https://www.eventbrite.com/d/online/hiit-bootcamp/',
   },
   {
     id: 'e5',
@@ -110,6 +114,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'small',
     familyFriendly: true,
     imageColor: '#c08fb5',
+    registrationUrl: 'https://www.eventbrite.com/d/online/watercolour-workshop/',
   },
   {
     id: 'e6',
@@ -128,6 +133,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'large',
     familyFriendly: true,
     imageColor: '#6fae84',
+    registrationUrl: 'https://www.eventbrite.com/d/online/family-nature-walk/',
   },
   {
     id: 'e7',
@@ -146,6 +152,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'small',
     familyFriendly: false,
     imageColor: '#8fb8a0',
+    registrationUrl: 'https://www.eventbrite.com/d/online/slow-flow-yoga/',
   },
   {
     id: 'e8',
@@ -164,6 +171,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'small',
     familyFriendly: false,
     imageColor: '#d6a85f',
+    registrationUrl: 'https://www.eventbrite.com/d/online/plant-based-cooking-class/',
   },
   {
     id: 'e9',
@@ -182,6 +190,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'small',
     familyFriendly: false,
     imageColor: '#9aa9c4',
+    registrationUrl: 'https://www.eventbrite.com/d/online/silent-meditation/',
   },
   {
     id: 'e10',
@@ -200,6 +209,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'large',
     familyFriendly: false,
     imageColor: '#cf7fa8',
+    registrationUrl: 'https://www.eventbrite.com/d/online/ecstatic-dance/',
   },
   {
     id: 'e11',
@@ -218,6 +228,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'small',
     familyFriendly: false,
     imageColor: '#b59ad1',
+    registrationUrl: 'https://www.eventbrite.com/d/online/journalling-tea-circle/',
   },
   {
     id: 'e12',
@@ -236,6 +247,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'small',
     familyFriendly: true,
     imageColor: '#7fc0b0',
+    registrationUrl: 'https://www.eventbrite.com/d/online/parent-baby-movement/',
   },
   {
     id: 'e13',
@@ -254,6 +266,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'small',
     familyFriendly: true,
     imageColor: '#84ad6f',
+    registrationUrl: 'https://www.eventbrite.com/d/online/trail-hike-photography/',
   },
   {
     id: 'e14',
@@ -272,6 +285,7 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'large',
     familyFriendly: false,
     imageColor: '#8c9fce',
+    registrationUrl: 'https://www.eventbrite.com/d/online/sound-healing-deep-rest/',
   },
   {
     id: 'e15',
@@ -290,5 +304,6 @@ export const EVENTS: WellnessEvent[] = [
     groupSize: 'large',
     familyFriendly: true,
     imageColor: '#9cc16f',
+    registrationUrl: 'https://www.eventbrite.com/d/online/community-garden-volunteering/',
   },
 ];
