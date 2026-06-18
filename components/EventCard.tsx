@@ -1,5 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { Clock, MapPin } from 'lucide-react-native';
+import { CloudRain, Clock, MapPin, Sun } from 'lucide-react-native';
 import { format } from 'date-fns';
 import { Chip, Surface, Text } from 'heroui-native';
 import { Pressable, View } from 'react-native';
@@ -14,7 +14,7 @@ interface Props {
 }
 
 export function EventCard({ recommendation, onPress, rank }: Props) {
-  const { event, reasons, distanceKm } = recommendation;
+  const { event, reasons, distanceKm, weather } = recommendation;
   const start = new Date(event.startsAt);
 
   return (
@@ -30,11 +30,25 @@ export function EventCard({ recommendation, onPress, rank }: Props) {
             <Chip variant="soft" size="sm">
               <Chip.Label>{CATEGORY_LABELS[event.category]}</Chip.Label>
             </Chip>
-            {rank != null && rank <= 3 ? (
-              <View className="bg-surface/90 rounded-full px-2 py-1">
-                <Text className="text-foreground text-xs font-semibold">Top pick</Text>
-              </View>
-            ) : null}
+            <View className="items-end gap-1">
+              {rank != null && rank <= 3 ? (
+                <View className="bg-surface/90 rounded-full px-2 py-1">
+                  <Text className="text-foreground text-xs font-semibold">Top pick</Text>
+                </View>
+              ) : null}
+              {event.outdoor && weather ? (
+                <View className="bg-surface/90 flex-row items-center gap-1 rounded-full px-2 py-1">
+                  {weather.condition === 'poor' ? (
+                    <CloudRain size={12} color="#c2603f" />
+                  ) : (
+                    <Sun size={12} color="#3f9d8b" />
+                  )}
+                  <Text className="text-foreground text-xs font-semibold">
+                    {weather.temperatureC}°
+                  </Text>
+                </View>
+              ) : null}
+            </View>
           </View>
         </LinearGradient>
 

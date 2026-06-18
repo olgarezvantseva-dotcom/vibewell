@@ -1,6 +1,7 @@
 import { EVENTS } from './events';
 import { distanceKm } from './useLocation';
 import type { CheckIn, Coordinates, Recommendation, UserProfile, WellnessEvent } from './types';
+import { forecastAt, type HourlyForecast } from './weather';
 
 /**
  * Derives the user's current wellness "needs" from a check-in.
@@ -37,10 +38,12 @@ interface ScoreInput {
   profile: UserProfile;
   checkIn: CheckIn | null;
   coords: Coordinates | null;
+  /** Hourly forecast used to weight outdoor events; null skips weather. */
+  forecast?: HourlyForecast | null;
 }
 
 export function scoreEvent(event: WellnessEvent, input: ScoreInput): Recommendation {
-  const { profile, checkIn, coords } = input;
+  const { profile, checkIn, coords, forecast } = input;
   const reasons: string[] = [];
   let score = 0;
 
@@ -130,7 +133,35 @@ export function scoreEvent(event: WellnessEvent, input: ScoreInput): Recommendat
     }
   }
 
-  return { event, score: Math.round(score), distanceKm: dist, reasons: reasons.slice(0, 3) };
+  // 8. Weather — only affects outdoor events.
+  let weather = null;
+  if (event.outdoor) {
+    weather = forecastAt(forecast ?? null, new Date(event.startsAt));
+    if (weather) {
+      if (weather.condition === 'good') {
+        score += 16;
+        reasons.push(
+          `Great weather expected — ${weather.temperatureC}°C, ${weather.label.toLowerCase()}`,
+        );
+      } else if (weather.condition === 'poor') {
+        score -= 28;
+        // Surface the warning first so it isn't trimmed off.
+        reasons.unshift(
+          `Weather may not cooperate — ${weather.label.toLowerCase()}, ${weather.precipitationChance}% rain`,
+        );
+      } else {
+        score += 2;
+      }
+    }
+  }
+
+  return {
+    event,
+    score: Math.round(score),
+    distanceKm: dist,
+    reasons: reasons.slice(0, 3),
+    weather,
+  };
 }
 
 export function recommendEvents(input: ScoreInput): Recommendation[] {

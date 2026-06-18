@@ -69,9 +69,28 @@ export interface WellnessEvent {
   price: number;
   groupSize: GroupPreference;
   familyFriendly: boolean;
+  /** True when the event takes place outdoors (subject to weather). */
+  outdoor: boolean;
   imageColor: string;
   /** External URL to register/book a place */
   registrationUrl: string;
+}
+
+export type WeatherCondition = 'good' | 'mixed' | 'poor';
+
+export interface WeatherSnapshot {
+  /** Temperature in °C at the event start hour. */
+  temperatureC: number;
+  /** Probability of precipitation (0-100) at the event start hour. */
+  precipitationChance: number;
+  /** Open-Meteo WMO weather code. */
+  weatherCode: number;
+  /** Wind speed in km/h. */
+  windKph: number;
+  /** Short human label, e.g. "Light rain". */
+  label: string;
+  /** Outdoor suitability classification. */
+  condition: WeatherCondition;
 }
 
 export interface Recommendation {
@@ -79,6 +98,8 @@ export interface Recommendation {
   score: number;
   distanceKm: number | null;
   reasons: string[];
+  /** Forecast at the event's start time (outdoor events only). */
+  weather: WeatherSnapshot | null;
 }
 
 export interface Coordinates {

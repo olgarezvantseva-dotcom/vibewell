@@ -10,6 +10,7 @@ import { CATEGORY_LABELS } from '@/lib/constants';
 import { recommendEvents } from '@/lib/recommend';
 import { todayKey, useCheckInStore, useProfileStore } from '@/lib/store';
 import { useLocation } from '@/lib/useLocation';
+import { useWeather } from '@/lib/weather';
 import type { EventCategory, Recommendation } from '@/lib/types';
 
 type Filter = 'all' | EventCategory;
@@ -22,6 +23,7 @@ export default function ExploreScreen() {
   const hydrated = useProfileStore((s) => s.hydrated);
   const checkIns = useCheckInStore((s) => s.checkIns);
   const { coords } = useLocation();
+  const { forecast } = useWeather(coords);
   const [filter, setFilter] = useState<Filter>('all');
 
   const todaysCheckIn = useMemo(
@@ -31,10 +33,10 @@ export default function ExploreScreen() {
 
   const recommendations = useMemo<Recommendation[]>(() => {
     if (!profile) return [];
-    const all = recommendEvents({ profile, checkIn: todaysCheckIn, coords });
+    const all = recommendEvents({ profile, checkIn: todaysCheckIn, coords, forecast });
     if (filter === 'all') return all;
     return all.filter((r) => r.event.category === filter);
-  }, [profile, todaysCheckIn, coords, filter]);
+  }, [profile, todaysCheckIn, coords, filter, forecast]);
 
   if (!hydrated || !profile) {
     return (

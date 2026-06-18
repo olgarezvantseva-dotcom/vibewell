@@ -9,6 +9,7 @@ import { CHECKIN_DIMENSIONS } from '@/lib/constants';
 import { deriveNeeds, NEED_LABELS, recommendEvents } from '@/lib/recommend';
 import { todayKey, useCheckInStore, useProfileStore } from '@/lib/store';
 import { useLocation } from '@/lib/useLocation';
+import { useWeather } from '@/lib/weather';
 
 export default function TodayScreen() {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function TodayScreen() {
   const checkIns = useCheckInStore((s) => s.checkIns);
   const checkInsHydrated = useCheckInStore((s) => s.hydrated);
   const { coords, status, request } = useLocation();
+  const { forecast } = useWeather(coords);
 
   const today = todayKey();
   const todaysCheckIn = useMemo(
@@ -27,8 +29,8 @@ export default function TodayScreen() {
 
   const recommendations = useMemo(() => {
     if (!profile) return [];
-    return recommendEvents({ profile, checkIn: todaysCheckIn, coords });
-  }, [profile, todaysCheckIn, coords]);
+    return recommendEvents({ profile, checkIn: todaysCheckIn, coords, forecast });
+  }, [profile, todaysCheckIn, coords, forecast]);
 
   const needs = useMemo(() => deriveNeeds(todaysCheckIn), [todaysCheckIn]);
 

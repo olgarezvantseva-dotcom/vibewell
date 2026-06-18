@@ -3,7 +3,16 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { format } from 'date-fns';
 import { Linking, Pressable, ScrollView, View } from 'react-native';
-import { ArrowLeft, Clock, ExternalLink, MapPin, Users, Wallet } from 'lucide-react-native';
+import {
+  ArrowLeft,
+  CloudRain,
+  Clock,
+  ExternalLink,
+  MapPin,
+  Sun,
+  Users,
+  Wallet,
+} from 'lucide-react-native';
 import { Button, Chip, Surface, Text } from 'heroui-native';
 
 import MapView from '@/components/MapView';
@@ -12,6 +21,7 @@ import { EVENTS } from '@/lib/events';
 import { scoreEvent } from '@/lib/recommend';
 import { DEFAULT_PROFILE, todayKey, useCheckInStore, useProfileStore } from '@/lib/store';
 import { useLocation } from '@/lib/useLocation';
+import { useWeather } from '@/lib/weather';
 
 const INTENSITY_LABEL: Record<string, string> = {
   restorative: 'Restorative',
@@ -27,6 +37,7 @@ export default function EventDetailScreen() {
   const profile = useProfileStore((s) => s.profile) ?? DEFAULT_PROFILE;
   const checkIns = useCheckInStore((s) => s.checkIns);
   const { coords } = useLocation();
+  const { forecast } = useWeather(coords);
 
   const event = useMemo(() => EVENTS.find((e) => e.id === id), [id]);
   const todaysCheckIn = useMemo(
@@ -35,8 +46,8 @@ export default function EventDetailScreen() {
   );
 
   const recommendation = useMemo(
-    () => (event ? scoreEvent(event, { profile, checkIn: todaysCheckIn, coords }) : null),
-    [event, profile, todaysCheckIn, coords],
+    () => (event ? scoreEvent(event, { profile, checkIn: todaysCheckIn, coords, forecast }) : null),
+    [event, profile, todaysCheckIn, coords, forecast],
   );
 
   if (!event || !recommendation) {
@@ -90,6 +101,39 @@ export default function EventDetailScreen() {
                   <Text className="text-foreground/80 text-sm">{reason}</Text>
                 </View>
               ))}
+            </Surface>
+          ) : null}
+
+          {event.outdoor && recommendation.weather ? (
+            <Surface variant="default" className="flex-row items-center gap-3 rounded-2xl p-4">
+              {recommendation.weather.condition === 'poor' ? (
+                <CloudRain size={22} color="#c2603f" />
+              ) : (
+                <Sun size={22} color="#3f9d8b" />
+              )}
+              <View className="flex-1">
+                <Text className="text-foreground font-semibold">
+                  Outdoor event · {recommendation.weather.label}
+                </Text>
+                <Text className="text-muted text-sm">
+                  {recommendation.weather.temperatureC}°C ·{' '}
+                  {recommendation.weather.precipitationChance}% chance of rain ·{' '}
+                  {recommendation.weather.windKph} km/h wind
+                </Text>
+                <Text
+                  className={
+                    recommendation.weather.condition === 'poor'
+                      ? 'text-sm text-[#c2603f]'
+                      : 'text-accent text-sm'
+                  }
+                >
+                  {recommendation.weather.condition === 'good'
+                    ? 'Great conditions for an outdoor session.'
+                    : recommendation.weather.condition === 'poor'
+                      ? 'Weather may disrupt this — consider an indoor alternative.'
+                      : 'Mixed conditions — keep an eye on the forecast.'}
+                </Text>
+              </View>
             </Surface>
           ) : null}
 

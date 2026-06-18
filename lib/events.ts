@@ -44,6 +44,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 0,
     groupSize: 'large',
     familyFriendly: true,
+    outdoor: true,
     imageColor: '#7fb5a8',
     registrationUrl: 'https://allevents.in/tallinn/jooga-stroomi-rannapargis/200030232819544',
   },
@@ -63,6 +64,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 0,
     groupSize: 'large',
     familyFriendly: true,
+    outdoor: true,
     imageColor: '#9bbf6f',
     registrationUrl: 'https://allevents.in/tallinn/sunset-run-2026/200030148965610',
   },
@@ -82,6 +84,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 25,
     groupSize: 'large',
     familyFriendly: false,
+    outdoor: false,
     imageColor: '#88a9c9',
     registrationUrl:
       'https://allevents.in/tallinn/n%C3%A4rvis%C3%BCsteemi-konverents-liquid-blomiga/200030139506649',
@@ -102,6 +105,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 0,
     groupSize: 'large',
     familyFriendly: false,
+    outdoor: false,
     imageColor: '#d08a6a',
     registrationUrl:
       'https://allevents.in/tallinn/kristiine-ringtreeningud-%7C-esimene-trenn/200030230384632',
@@ -122,6 +126,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 25,
     groupSize: 'large',
     familyFriendly: true,
+    outdoor: false,
     imageColor: '#c08fb5',
     registrationUrl:
       'https://allevents.in/tallinn/candlelight-hans-zimmeri-parimad-teosed/2700030035493907',
@@ -142,6 +147,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 8,
     groupSize: 'large',
     familyFriendly: true,
+    outdoor: true,
     imageColor: '#6fae84',
     registrationUrl:
       'https://allevents.in/tallinn/tales-of-the-coastal-folk-mega-estonia-2026/200030098432334',
@@ -162,6 +168,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 18,
     groupSize: 'small',
     familyFriendly: false,
+    outdoor: false,
     imageColor: '#8fb8a0',
     registrationUrl:
       'https://allevents.in/tallinn/yin-and-taastava-jooga-%C3%95petajate-koolitus-yin-and-restorative-yoga-teacher-training/200030014981330',
@@ -182,6 +189,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 0,
     groupSize: 'large',
     familyFriendly: true,
+    outdoor: true,
     imageColor: '#d6a85f',
     registrationUrl:
       'https://allevents.in/tallinn/tallinn-food-truck-festival-2026/200029585854105',
@@ -202,6 +210,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 0,
     groupSize: 'small',
     familyFriendly: false,
+    outdoor: false,
     imageColor: '#9aa9c4',
     registrationUrl:
       'https://allevents.in/tallinn/m%C3%B5ttetuba-vabamus-kas-populismi-laine-muudab-demokraatia-tulevikku/200030134643235',
@@ -222,6 +231,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 15,
     groupSize: 'large',
     familyFriendly: false,
+    outdoor: false,
     imageColor: '#cf7fa8',
     registrationUrl:
       'https://allevents.in/tallinn/musicality-weekender-bachata-workshops-party/200030034302595',
@@ -242,6 +252,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 20,
     groupSize: 'small',
     familyFriendly: false,
+    outdoor: true,
     imageColor: '#b59ad1',
     registrationUrl:
       'https://allevents.in/tallinn/sunday-service-club-power-breakfast-pilates-breakfast-at-kadriorg-palace/200030205281841',
@@ -262,6 +273,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 0,
     groupSize: 'large',
     familyFriendly: true,
+    outdoor: true,
     imageColor: '#7fc0b0',
     registrationUrl:
       'https://allevents.in/tallinn/eesti-tervisemess-liikuma-kalev-125-vii-eestimaa-v%C3%B5imlemispidu-maaelu-v%C3%B5lu/200029698419637',
@@ -282,6 +294,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 0,
     groupSize: 'large',
     familyFriendly: true,
+    outdoor: true,
     imageColor: '#84ad6f',
     registrationUrl:
       'https://allevents.in/tallinn/p%C3%B5hja-tallinna-jaanip%C3%A4ev/200029973566520',
@@ -302,6 +315,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 25,
     groupSize: 'large',
     familyFriendly: true,
+    outdoor: false,
     imageColor: '#8c9fce',
     registrationUrl:
       'https://allevents.in/tallinn/candlelight-ed-sheeran-and-coldplay/2700029815334831',
@@ -322,6 +336,7 @@ export const EVENTS: WellnessEvent[] = [
     price: 0,
     groupSize: 'large',
     familyFriendly: true,
+    outdoor: true,
     imageColor: '#9cc16f',
     registrationUrl:
       'https://allevents.in/tallinn/kesklinna-suvekontsert-koit-toome-and-b%C3%A4nd/200030097006650',
