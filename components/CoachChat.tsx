@@ -143,16 +143,16 @@ export function CoachChat() {
       </Pressable>
 
       <Modal visible={open} animationType="slide" transparent onRequestClose={() => setOpen(false)}>
-        <View className="flex-1 justify-end bg-black/40">
-          <Pressable className="flex-1" onPress={() => setOpen(false)} />
+        <View className="flex-1 bg-black/40">
           <KeyboardAvoidingView
+            className="flex-1"
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}
             keyboardVerticalOffset={0}
           >
             <Surface
               variant="default"
-              className="overflow-hidden rounded-t-3xl"
-              style={{ height: '92%', paddingBottom: insets.bottom }}
+              className="flex-1 overflow-hidden"
+              style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
             >
               {/* Header */}
               <View className="border-border flex-row items-center gap-2 border-b px-4 py-3">
