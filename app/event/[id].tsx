@@ -108,7 +108,7 @@ export default function EventDetailScreen() {
             />
             <Detail
               icon={<Wallet size={16} color="#3f9d8b" />}
-              label={event.price === 0 ? 'Free' : `£${event.price}`}
+              label={event.price === 0 ? 'Free' : `€${event.price}`}
             />
             <Detail icon={<Users size={16} color="#3f9d8b" />} label={`${event.durationMin} min`} />
           </View>

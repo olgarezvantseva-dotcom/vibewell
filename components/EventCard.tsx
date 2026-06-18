@@ -70,7 +70,7 @@ export function EventCard({ recommendation, onPress, rank }: Props) {
 
           <View className="mt-1 flex-row items-center justify-between">
             <Text className="text-foreground text-sm font-semibold">
-              {event.price === 0 ? 'Free' : `£${event.price}`}
+              {event.price === 0 ? 'Free' : `€${event.price}`}
             </Text>
             <Text className="text-muted text-xs">{event.durationMin} min</Text>
           </View>
