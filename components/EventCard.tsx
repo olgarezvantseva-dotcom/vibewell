@@ -41,7 +41,7 @@ export function EventCard({ recommendation, onPress, rank }: Props) {
                   {weather.condition === 'poor' ? (
                     <CloudRain size={12} color="#c2603f" />
                   ) : (
-                    <Sun size={12} color="#3f9d8b" />
+                    <Sun size={12} color="#c77d9e" />
                   )}
                   <Text className="text-foreground text-xs font-semibold">
                     {weather.temperatureC}°
@@ -59,11 +59,11 @@ export function EventCard({ recommendation, onPress, rank }: Props) {
 
           <View className="flex-row flex-wrap items-center gap-x-4 gap-y-1">
             <View className="flex-row items-center gap-1">
-              <Clock size={13} color="#7a8a85" />
+              <Clock size={13} color="#998790" />
               <Text className="text-muted text-xs">{format(start, 'EEE p')}</Text>
             </View>
             <View className="flex-row items-center gap-1">
-              <MapPin size={13} color="#7a8a85" />
+              <MapPin size={13} color="#998790" />
               <Text className="text-muted text-xs" numberOfLines={1}>
                 {distanceKm != null ? `${distanceKm.toFixed(1)} km · ` : ''}
                 {event.venue}

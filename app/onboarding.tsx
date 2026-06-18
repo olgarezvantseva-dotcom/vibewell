@@ -37,7 +37,7 @@ export default function OnboardingScreen() {
       >
         <View className="gap-3">
           <View className="bg-soft-accent h-12 w-12 items-center justify-center rounded-2xl">
-            <Sparkles size={24} color="#3f9d8b" />
+            <Sparkles size={24} color="#c77d9e" />
           </View>
           <Text className="text-foreground text-3xl font-bold">Welcome to Bloom</Text>
           <Text className="text-muted text-base">

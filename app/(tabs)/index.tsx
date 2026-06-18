@@ -93,7 +93,7 @@ export default function TodayScreen() {
         ) : (
           <Surface variant="default" className="gap-3 rounded-2xl p-5">
             <View className="flex-row items-center gap-2">
-              <Heart size={18} color="#3f9d8b" />
+              <Heart size={18} color="#c77d9e" />
               <Text className="text-foreground font-semibold">Start with a check-in</Text>
             </View>
             <Text className="text-muted text-sm">
@@ -108,7 +108,7 @@ export default function TodayScreen() {
 
         {/* Location status */}
         <View className="flex-row items-center gap-2 px-1">
-          <MapPin size={14} color="#7a8a85" />
+          <MapPin size={14} color="#998790" />
           <Text className="text-muted flex-1 text-xs">
             {status === 'granted' && coords
               ? `Showing events within ${profile.maxDistanceKm} km of you`
@@ -142,7 +142,7 @@ export default function TodayScreen() {
 
         {recommendations.length === 0 ? (
           <View className="items-center gap-2 py-8">
-            <RefreshCw size={20} color="#7a8a85" />
+            <RefreshCw size={20} color="#998790" />
             <Text className="text-muted text-sm">No upcoming events match right now.</Text>
           </View>
         ) : null}

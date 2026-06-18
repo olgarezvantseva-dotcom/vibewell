@@ -46,7 +46,7 @@ export default function CheckInScreen() {
         <View className="pt-safe-offset-4 flex-row items-center justify-between px-4 pb-2">
           <Text className="text-foreground text-xl font-bold">Daily check-in</Text>
           <Pressable onPress={() => router.back()} className="p-1">
-            <X size={24} color="#7a8a85" />
+            <X size={24} color="#998790" />
           </Pressable>
         </View>
 

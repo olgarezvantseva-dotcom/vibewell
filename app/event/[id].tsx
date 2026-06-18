@@ -74,7 +74,7 @@ export default function EventDetailScreen() {
               onPress={() => router.back()}
               className="bg-surface/90 h-10 w-10 items-center justify-center rounded-full"
             >
-              <ArrowLeft size={20} color="#2b3a35" />
+              <ArrowLeft size={20} color="#4a3540" />
             </Pressable>
           </View>
           <View className="flex-1 justify-end p-4">
@@ -109,7 +109,7 @@ export default function EventDetailScreen() {
               {recommendation.weather.condition === 'poor' ? (
                 <CloudRain size={22} color="#c2603f" />
               ) : (
-                <Sun size={22} color="#3f9d8b" />
+                <Sun size={22} color="#c77d9e" />
               )}
               <View className="flex-1">
                 <Text className="text-foreground font-semibold">
@@ -139,11 +139,11 @@ export default function EventDetailScreen() {
 
           <View className="flex-row flex-wrap gap-x-6 gap-y-3">
             <Detail
-              icon={<Clock size={16} color="#3f9d8b" />}
+              icon={<Clock size={16} color="#c77d9e" />}
               label={format(start, 'EEEE, MMM d · p')}
             />
             <Detail
-              icon={<MapPin size={16} color="#3f9d8b" />}
+              icon={<MapPin size={16} color="#c77d9e" />}
               label={
                 recommendation.distanceKm != null
                   ? `${recommendation.distanceKm.toFixed(1)} km · ${event.venue}`
@@ -151,10 +151,10 @@ export default function EventDetailScreen() {
               }
             />
             <Detail
-              icon={<Wallet size={16} color="#3f9d8b" />}
+              icon={<Wallet size={16} color="#c77d9e" />}
               label={event.price === 0 ? 'Free' : `€${event.price}`}
             />
-            <Detail icon={<Users size={16} color="#3f9d8b" />} label={`${event.durationMin} min`} />
+            <Detail icon={<Users size={16} color="#c77d9e" />} label={`${event.durationMin} min`} />
           </View>
 
           <Text className="text-foreground/90 text-base leading-6">{event.description}</Text>
