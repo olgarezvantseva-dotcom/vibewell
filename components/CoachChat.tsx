@@ -133,12 +133,13 @@ export function CoachChat() {
   return (
     <>
       <Pressable
-        accessibilityLabel="Open wellness coach"
+        accessibilityLabel="Talk to me"
         onPress={() => setOpen(true)}
-        style={{ position: 'absolute', right: 16, bottom: insets.bottom + 76 }}
-        className="bg-accent h-14 w-14 items-center justify-center rounded-full shadow-lg active:opacity-90"
+        style={{ position: 'absolute', right: 12, top: insets.top + 6 }}
+        className="bg-accent flex-row items-center gap-1.5 rounded-full px-3 py-1.5 shadow-sm active:opacity-90"
       >
-        <MessageCircle size={26} color="#ffffff" />
+        <MessageCircle size={16} color="#ffffff" />
+        <Text className="text-accent-foreground text-xs font-semibold">Talk to me</Text>
       </Pressable>
 
       <Modal visible={open} animationType="slide" transparent onRequestClose={() => setOpen(false)}>
@@ -159,7 +160,7 @@ export function CoachChat() {
                   <Sparkles size={18} color={accent} />
                 </View>
                 <View className="flex-1">
-                  <Text className="text-foreground font-bold">Bloom Coach</Text>
+                  <Text className="text-foreground font-bold">Talk to me</Text>
                   <Text className="text-muted text-xs">On-device · private</Text>
                 </View>
                 {messages.length > 0 ? (
