@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-import type { CheckIn, UserProfile } from './types';
+import type { ChatMessage, CheckIn, UserProfile } from './types';
 
 interface ProfileState {
   profile: UserProfile | null;
@@ -70,6 +70,32 @@ export const useCheckInStore = create<CheckInState>()(
       name: 'wellness-checkins',
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (state) => ({ checkIns: state.checkIns }),
+      onRehydrateStorage: () => (state) => {
+        if (state) state.hydrated = true;
+      },
+    },
+  ),
+);
+
+interface ChatState {
+  messages: ChatMessage[];
+  hydrated: boolean;
+  addMessage: (message: ChatMessage) => void;
+  clear: () => void;
+}
+
+export const useChatStore = create<ChatState>()(
+  persist(
+    (set) => ({
+      messages: [],
+      hydrated: false,
+      addMessage: (message) => set((state) => ({ messages: [...state.messages, message] })),
+      clear: () => set({ messages: [] }),
+    }),
+    {
+      name: 'wellness-chat',
+      storage: createJSONStorage(() => AsyncStorage),
+      partialize: (state) => ({ messages: state.messages }),
       onRehydrateStorage: () => (state) => {
         if (state) state.hydrated = true;
       },

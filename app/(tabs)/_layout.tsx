@@ -4,6 +4,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useThemeColor } from 'heroui-native';
 import { useUniwind } from 'uniwind';
 
+import { CoachChat } from '@/components/CoachChat';
+
 export default function TabLayout() {
   const { theme } = useUniwind();
   const [background, foreground, border, accent, muted] = useThemeColor([
@@ -54,6 +56,7 @@ export default function TabLayout() {
           }}
         />
       </Tabs>
+      <CoachChat />
     </>
   );
 }

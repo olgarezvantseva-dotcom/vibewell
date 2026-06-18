@@ -106,3 +106,15 @@ export interface Coordinates {
   lat: number;
   lng: number;
 }
+
+export type ChatRole = 'user' | 'agent';
+
+export interface ChatMessage {
+  id: string;
+  role: ChatRole;
+  text: string;
+  /** Epoch ms when the message was created. */
+  createdAt: number;
+  /** Optional event ids the agent referenced, for tappable chips. */
+  eventIds?: string[];
+}
