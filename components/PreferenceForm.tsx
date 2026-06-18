@@ -1,4 +1,4 @@
-import { Label, Radio, RadioGroup, Slider, Text } from 'heroui-native';
+import { Input, Label, Radio, RadioGroup, Slider, Text, TextField } from 'heroui-native';
 import { View } from 'react-native';
 
 import { SelectChip } from '@/components/SelectChip';
@@ -27,6 +27,21 @@ export function PreferenceForm({ draft, onChange }: Props) {
 
   return (
     <View className="gap-6">
+      <View className="gap-3">
+        <View>
+          <Text className="text-foreground font-semibold">Your name</Text>
+          <Text className="text-muted text-sm">Shown in your Today greeting.</Text>
+        </View>
+        <TextField>
+          <Input
+            placeholder="Your name"
+            value={draft.name}
+            onChangeText={(name) => onChange({ name })}
+            autoCapitalize="words"
+          />
+        </TextField>
+      </View>
+
       <View className="gap-3">
         <View>
           <Text className="text-foreground font-semibold">Your interests</Text>
