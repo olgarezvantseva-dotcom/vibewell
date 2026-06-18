@@ -152,7 +152,7 @@ export function CoachChat() {
             <Surface
               variant="default"
               className="overflow-hidden rounded-t-3xl"
-              style={{ height: '82%', paddingBottom: insets.bottom }}
+              style={{ height: '92%', paddingBottom: insets.bottom }}
             >
               {/* Header */}
               <View className="border-border flex-row items-center gap-2 border-b px-4 py-3">
