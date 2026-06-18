@@ -1,4 +1,4 @@
-import { Home } from 'lucide-react-native';
+import { Compass, Sparkles, User } from 'lucide-react-native';
 import { Tabs } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useThemeColor } from 'heroui-native';
@@ -21,7 +21,7 @@ export default function TabLayout() {
         screenOptions={{
           headerStyle: { backgroundColor: background },
           headerTintColor: foreground,
-          headerTitleStyle: { color: foreground },
+          headerTitleStyle: { color: foreground, fontWeight: '700' },
           headerShadowVisible: false,
           sceneStyle: { backgroundColor: background },
           tabBarStyle: {
@@ -35,8 +35,22 @@ export default function TabLayout() {
         <Tabs.Screen
           name="index"
           options={{
-            title: 'Home',
-            tabBarIcon: ({ color, size }) => <Home color={color} size={size ?? 24} />,
+            title: 'Today',
+            tabBarIcon: ({ color, size }) => <Sparkles color={color} size={size ?? 24} />,
+          }}
+        />
+        <Tabs.Screen
+          name="explore"
+          options={{
+            title: 'Explore',
+            tabBarIcon: ({ color, size }) => <Compass color={color} size={size ?? 24} />,
+          }}
+        />
+        <Tabs.Screen
+          name="profile"
+          options={{
+            title: 'You',
+            tabBarIcon: ({ color, size }) => <User color={color} size={size ?? 24} />,
           }}
         />
       </Tabs>

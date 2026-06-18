@@ -162,4 +162,47 @@
 }
 */
 
+@layer theme {
+  :root {
+    /* Wellness palette — calm teal/green accent on warm neutral */
+    --background: oklch(0.985 0.006 145);
+    --foreground: oklch(0.24 0.02 160);
+
+    --surface: oklch(1 0 0);
+    --surface-foreground: var(--foreground);
+
+    --overlay: oklch(1 0 0);
+    --overlay-foreground: var(--foreground);
+
+    --muted: oklch(0.56 0.02 160);
+
+    --default: oklch(0.95 0.01 150);
+    --default-foreground: var(--foreground);
+
+    --accent: oklch(0.62 0.11 175);
+    --accent-foreground: oklch(0.99 0 0);
+
+    --success: oklch(0.73 0.16 150);
+    --success-foreground: oklch(0.2 0.02 160);
+
+    --warning: oklch(0.8 0.14 75);
+    --warning-foreground: oklch(0.24 0.02 160);
+
+    --danger: oklch(0.64 0.2 25);
+    --danger-foreground: oklch(0.99 0 0);
+
+    --border: oklch(0.92 0.008 150);
+    --separator: oklch(0.92 0.008 150);
+    --focus: var(--accent);
+  }
+}
+
+@theme {
+  /* Mood/state accent utilities for bg- and text- usage */
+  --color-energy: oklch(0.78 0.15 80);
+  --color-calm: oklch(0.7 0.1 220);
+  --color-mood: oklch(0.7 0.15 330);
+  --color-soft-accent: oklch(0.95 0.04 175);
+}
+
 @source './node_modules/heroui-native/lib';
